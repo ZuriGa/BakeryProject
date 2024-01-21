@@ -1,17 +1,18 @@
+
 namespace Bakery.Models
 {
   public class Bread
   {
-    public int Quantity { get; set; } 
+    public int Quantity { get; set; }
     public int TotalCost { get; set; }
 
     public Bread(int quantity)
     {
       Quantity = quantity;
-      TotalCost = CalculateTotalCost();
+      CalculateTotalCost();
     }
-    
-    private int CalculateTotalCost()
+
+    public void CalculateTotalCost()
     {
       int breadPrice = 5;
       int offerLoaves = Quantity / 3;
@@ -19,15 +20,15 @@ namespace Bakery.Models
 
       if (Quantity % 3 == 0)
       {
-        return breadPrice * Quantity - discountedAmount;
+        TotalCost = breadPrice * Quantity - discountedAmount;
       }
       else if (Quantity > 3)
       {
-        return breadPrice * Quantity - discountedAmount + (Quantity % 3) * 5;
+        TotalCost = breadPrice * Quantity - discountedAmount + (Quantity % 3) * 5;
       }
       else
       {
-        return breadPrice * Quantity;
+        TotalCost = breadPrice * Quantity;
       }
     }
 

@@ -35,8 +35,9 @@ namespace Bakery.Tests
     [TestMethod]
     public void GetTotalCost_ReturnsTotalCost_Int()
     {
-      int totalCost = 5;
-      Bread newBread = new Bread(1);
+      Bread newBread = new Bread(6);
+      newBread.CalculateTotalCost();
+      int totalCost = 20;
       int result = newBread.TotalCost;
       Assert.AreEqual(totalCost, result);
     }
@@ -45,6 +46,7 @@ namespace Bakery.Tests
     public void SetTotalCost_SetsValueOfTotalCost_Void()
     {
       Bread newBread = new Bread(4);
+      newBread.CalculateTotalCost();
       int newTotalCost = newBread.Quantity * newBread.TotalCost;
       newBread.TotalCost = newTotalCost;
       Assert.AreEqual(newTotalCost, newBread.TotalCost);
