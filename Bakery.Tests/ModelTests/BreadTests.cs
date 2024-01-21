@@ -9,36 +9,45 @@ namespace Bakery.Tests
     [TestMethod]
     public void BreadConstructor_CreatesInstanceOfBread_Bread()
     {
-      Bread newBread = new Bread(1, 5);
+      Bread newBread = new Bread(1);
       Assert.AreEqual(typeof(Bread), newBread.GetType());
     }
-    
+
     [TestMethod]
     public void GetQuantity_ReturnsQuantity_Int()
     {
       int orderQuantity = 1;
-      Bread newBread = new Bread(orderQuantity, 5);
+      Bread newBread = new Bread(orderQuantity);
       int result = newBread.Quantity;
       Assert.AreEqual(orderQuantity, result);
-      
+
     }
 
     [TestMethod]
     public void SetQuantity_SetsValueOfQuantity_Void()
     {
-      Bread newBread = new Bread(2, 10);
+      Bread newBread = new Bread(2);
       int newOrderQuantity = 4;
       newBread.Quantity = newOrderQuantity;
       Assert.AreEqual(newOrderQuantity, newBread.Quantity);
     }
 
     [TestMethod]
-    public void GetCalculateCost_ReturnsCalculateCost_Int()
+    public void GetTotalCost_ReturnsTotalCost_Int()
     {
       int totalCost = 5;
-      Bread newBread = new Bread(1, totalCost);
-      int result = newBread.CalculateCost;
+      Bread newBread = new Bread(1);
+      int result = newBread.TotalCost;
       Assert.AreEqual(totalCost, result);
+    }
+
+    [TestMethod]
+    public void SetTotalCost_SetsValueOfTotalCost_Void()
+    {
+      Bread newBread = new Bread(4);
+      int newTotalCost = newBread.Quantity * newBread.TotalCost;
+      newBread.TotalCost = newTotalCost;
+      Assert.AreEqual(newTotalCost, newBread.TotalCost);
     }
   }
 }
