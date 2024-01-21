@@ -3,9 +3,10 @@ namespace Bakery.Models
 {
   public class Pastry
   {
-    public Pastry()
+    public int Quantity { get; }
+    public Pastry(int quantity)
     {
-
+      Quantity = quantity;
     }
   }
 }
