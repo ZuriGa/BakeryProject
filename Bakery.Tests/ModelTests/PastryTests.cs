@@ -34,10 +34,21 @@ namespace Bakery.Tests
     [TestMethod]
     public void GetTotalCost_ReturnsTotalCost_Int()
     {
-      Pastry newPastry = new Pastry(7);
-      int totalCost = newPastry.CalculateTotalCost();
+      Pastry newPastry = new Pastry(8);
+      newPastry.CalculateTotalCost();
+      int totalCost = 12;
       int result = newPastry.TotalCost;
       Assert.AreEqual(totalCost, result);
+    }
+
+    [TestMethod]
+    public void SetTotalCost_SetsValueOfTotalCost_Void()
+    {
+      Pastry newPastry = new Pastry(6);
+      newPastry.CalculateTotalCost();
+      int newTotalCost = newPastry.Quantity * newPastry.TotalCost;
+      newPastry.TotalCost = newTotalCost;
+      Assert.AreEqual(newTotalCost, newPastry.TotalCost);
     }
   }
 }
