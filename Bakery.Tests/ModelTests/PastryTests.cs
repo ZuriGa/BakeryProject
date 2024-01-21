@@ -21,5 +21,14 @@ namespace Bakery.Tests
       int result = newPastry.Quantity;
       Assert.AreEqual(orderQuantity, result);
     }
+
+    [TestMethod]
+    public void SetQuantity_SetsValueOfQuantity_Void()
+    {
+      Pastry newPastry = new Pastry(1);
+      int newOrderQuantity = 4;
+      newPastry.Quantity = newOrderQuantity;
+      Assert.AreEqual(newOrderQuantity, newPastry.Quantity);
+    }
   }
 }
