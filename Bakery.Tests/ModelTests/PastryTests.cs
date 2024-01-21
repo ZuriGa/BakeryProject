@@ -12,7 +12,7 @@ namespace Bakery.Tests
       Pastry newPastry = new Pastry(2);
       Assert.AreEqual(typeof(Pastry), newPastry.GetType());
     }
-    
+
     [TestMethod]
     public void GetQuantity_ReturnsQuantity_Int()
     {
@@ -29,6 +29,15 @@ namespace Bakery.Tests
       int newOrderQuantity = 4;
       newPastry.Quantity = newOrderQuantity;
       Assert.AreEqual(newOrderQuantity, newPastry.Quantity);
+    }
+
+    [TestMethod]
+    public void GetTotalCost_ReturnsTotalCost_Int()
+    {
+      Pastry newPastry = new Pastry(7);
+      int totalCost = newPastry.CalculateTotalCost();
+      int result = newPastry.TotalCost;
+      Assert.AreEqual(totalCost, result);
     }
   }
 }
