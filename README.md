@@ -40,4 +40,4 @@
 
 MIT License
 
-Copyright (c) 2023 Zuri Gallegos
+Copyright (c) 2024 Zuri Gallegos
