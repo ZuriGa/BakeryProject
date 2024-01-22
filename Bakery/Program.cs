@@ -1,6 +1,6 @@
 using System;
 using Bakery.Models;
-
+using Bakery.UserInterfaceModels;
 
 
 namespace Bakery
@@ -9,11 +9,11 @@ namespace Bakery
   {
     static void Main()
     {
+      Console.WriteLine(WelcomeBanner.Welcome);
       Console.WriteLine("           ~~ Welcome to Pierre's Bakery! ~~");
       Console.WriteLine("-....- -....- -....- -....- -....- -....- -....--....- ");
       BakeryMenu();
-      
-      Console.WriteLine("                 ~~ Goodbye ~~");
+      Console.WriteLine("\n                 ~~ Goodbye ~~");
       Console.WriteLine("-....- -....- -....- -....- -....- -....- -....--....- ");
     }
 
@@ -25,7 +25,7 @@ namespace Bakery
       Pastry newPastry = null;
 
 
-      Console.WriteLine("Pierre offers the following items:");
+      Console.WriteLine("  Pierre offers the following items:");
       Console.WriteLine("-....- -....- -....- -....- -....- -....- -....--....--....-  ");
       Console.WriteLine("|    Bread:  | Buy 2, get 1 free - Single loaf $5.00    |");
       Console.WriteLine("|    Pastry: | Buy 3, get 1 free - Single Pastry $2.00  |");
@@ -51,8 +51,7 @@ namespace Bakery
 
         newPastry.CalculateTotalCost();
         int pastryCost = newPastry.TotalCost;
-        Console.WriteLine("n/");
-        Console.WriteLine("              Here's your order:");
+        Console.WriteLine("\n              Here's your order:");
         Console.WriteLine("-....- -....- -....- -....- -....- -....- -....--....- ");
         Console.WriteLine($"           Bread Order x {newBread.Quantity}: {newBread.TotalCost:C}");
         Console.WriteLine($"          Pastry Order x {newPastry.Quantity}: {newPastry.TotalCost:C}");
@@ -60,7 +59,7 @@ namespace Bakery
         Console.WriteLine("-....- -....- -....- -....- -....- -....- -....--....- ");
         ConfirmOrder(newBread, newPastry);
       }
-      catch
+      catch (FormatException)
       {
         Console.WriteLine("-....- -....- -....- -....- -....- -....- -....--....- ");
         Console.WriteLine("     !     Unable to complete order!     !");
@@ -73,26 +72,22 @@ namespace Bakery
     static void ConfirmOrder(Bread newBread, Pastry newPastry)
     {
       Console.WriteLine("    Would you like to complete your purchase or edit your order?  ");
-      Console.WriteLine("       To edit your order type 'e'.");
-      Console.WriteLine("        To Complete order type 'c', to exit enter any other key.");
+      Console.WriteLine("       To edit your order type 'e', ");
+      Console.WriteLine("        To Complete order type 'c',");
+      Console.WriteLine("         To exit enter any other key.");
+      
       string userInput = Console.ReadLine();
 
-      if (userInput == "yes" || userInput == "Yes")
+      if (userInput == "e" || userInput == "E")
       {
         BakeryMenu();
       }
-      else if (userInput == "no" || userInput == "No")
+      else if (userInput == "c" || userInput == "C")
       {
         Console.WriteLine($"Your final order: Bread x {newBread.Quantity}, Pastry x {newPastry.Quantity}");
         Console.WriteLine($"Total Order Cost: {newBread.TotalCost + newPastry.TotalCost:C}");
       }
-      else
-      {
-        
-      }
     }
-
-
 
   }
 }

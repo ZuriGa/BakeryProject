@@ -18,19 +18,21 @@ namespace Bakery.Models
       int offerLoaves = Quantity / 3;
       int discountedAmount = offerLoaves * 5;
 
-      if (Quantity % 3 == 0)
-      {
-        TotalCost = breadPrice * Quantity - discountedAmount;
+      TotalCost = (Quantity * breadPrice) - discountedAmount;
+
+    //   if (Quantity % 3 == 0)
+    //   {
+    //     TotalCost = breadPrice * Quantity - discountedAmount;
+    //   }
+    //   else if (Quantity > 3)
+    //   {
+    //     TotalCost = breadPrice * Quantity - discountedAmount + (Quantity % 3) * 5;
+    //   }
+    //   else
+    //   {
+    //     TotalCost = breadPrice * Quantity;
+    //   }
       }
-      else if (Quantity > 3)
-      {
-        TotalCost = breadPrice * Quantity - discountedAmount + (Quantity % 3) * 5;
-      }
-      else
-      {
-        TotalCost = breadPrice * Quantity;
-      }
-    }
 
   }
 }
