@@ -25,7 +25,7 @@ namespace Bakery
       Pastry newPastry = null;
 
 
-      Console.WriteLine("  Pierre offers the following items:");
+      Console.WriteLine("   Pierre offers the following items:");
       Console.WriteLine("-....- -....- -....- -....- -....- -....- -....--....--....-  ");
       Console.WriteLine("|    Bread:  | Buy 2, get 1 free - Single loaf $5.00    |");
       Console.WriteLine("|    Pastry: | Buy 3, get 1 free - Single Pastry $2.00  |");
